@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英语单词匹配游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>英语单词匹配游戏</h1>
+            <div class="score-board">
+                <p>得分: <span id="score">0</span></p>
+                <p>剩余时间: <span id="timer">30</span>秒</p>
+            </div>
+        </header>
+
+        <main>
+            <div class="game-container">
+                <div class="word-display">
+                    <h2 id="word">Loading...</h2>
+                </div>
+                <div class="options-container">
+                    <div class="option" id="option1"></div>
+                    <div class="option" id="option2"></div>
+                    <div class="option" id="option3"></div>
+                    <div class="option" id="option4"></div>
+                </div>
+                <div class="feedback" id="feedback"></div>
+                <div class="wrong-words-container" style="display: none;">
+                    <h3>错误单词</h3>
+                    <ul id="wrong-words-list"></ul>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <button id="start-btn" class="btn">开始游戏</button>
+            <button id="reset-btn" class="btn" disabled>重新开始</button>
+            <button id="end-btn" class="btn" disabled>结束游戏</button>
+            <button id="music-toggle" class="btn">音乐</button>
+            <select id="difficulty">
+                <option value="easy">简单</option>
+                <option value="medium" selected>中等</option>
+                <option value="hard">困难</option>
+            </select>
+        </footer>
+    </div>
+
+    <style>
+        .wrong-words-container {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .wrong-words-container h3 {
+            margin-top: 0;
+            color: #e74c3c;
+        }
+        #wrong-words-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #wrong-words-list li {
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .wrong-word {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .correct-definition {
+            color: #2ecc71;
+        }
+    </style>
+    <audio id="background-music" loop>
+        <source src="music/background.mp3" type="audio/mpeg">
+        您的浏览器不支持音频元素。
+        </audio>
+    <div class="volume-control">
+        <label for="volume-slider">音量:</label>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.1">
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
